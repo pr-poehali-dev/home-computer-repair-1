@@ -142,7 +142,7 @@ function Hero() {
         <div className="max-w-2xl w-full">
           <div className="inline-flex items-center gap-2 bg-[#1A1A1A] border border-[#2A2A2A] rounded-full px-4 py-2 mb-8 animate-fade-in">
             <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#FF6B00" }} />
-            <span className="font-ibm text-xs text-[#888] tracking-widest uppercase">Принимаем заявки</span>
+            <span className="font-ibm text-xs text-[#888] tracking-widest uppercase">Самара — принимаем заявки</span>
           </div>
 
           <h1 className="font-oswald text-4xl sm:text-6xl md:text-8xl font-bold leading-tight mb-6 animate-fade-in" style={{ animationDelay: "100ms" }}>
@@ -152,7 +152,7 @@ function Hero() {
           </h1>
 
           <p className="font-ibm text-base md:text-lg text-[#888] leading-relaxed mb-10 max-w-lg animate-fade-in pr-4" style={{ animationDelay: "200ms" }}>
-            Быстрая диагностика, честные цены, гарантия на все работы. Чиним в день обращения — без очередей и переплат.
+            Ремонт компьютеров и ноутбуков на дому в Самаре. Выезд мастера в день обращения — диагностика бесплатно, гарантия на все работы.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 animate-fade-in" style={{ animationDelay: "300ms" }}>
@@ -348,7 +348,7 @@ function Contacts() {
               { icon: "Phone", label: "Телефон", value: "+7 (900) 000-00-00" },
               { icon: "MessageCircle", label: "WhatsApp / Telegram", value: "@master_remont" },
               { icon: "Clock", label: "Режим работы", value: "Пн–Вс, 8:00 — 21:00" },
-              { icon: "MapPin", label: "Район работы", value: "Москва и МО" },
+              { icon: "MapPin", label: "Район работы", value: "Самара и область" },
             ].map(item => (
               <div key={item.label}
                 className="rounded-2xl p-5 flex items-center gap-4 transition-all duration-200"
