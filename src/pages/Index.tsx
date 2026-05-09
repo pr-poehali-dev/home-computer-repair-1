@@ -129,7 +129,7 @@ function NavBar() {
 
 function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-x-hidden">
       <div className="absolute inset-0">
         <img src={HERO_IMAGE} alt="Ремонт компьютеров" className="w-full h-full object-cover opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/85 to-transparent" />
@@ -138,32 +138,32 @@ function Hero() {
         <div className="absolute bottom-1/4 right-1/3 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(255,214,0,0.05)" }} />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-16">
-        <div className="max-w-2xl">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-16">
+        <div className="max-w-2xl w-full">
           <div className="inline-flex items-center gap-2 bg-[#1A1A1A] border border-[#2A2A2A] rounded-full px-4 py-2 mb-8 animate-fade-in">
             <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#FF6B00" }} />
             <span className="font-ibm text-xs text-[#888] tracking-widest uppercase">Принимаем заявки</span>
           </div>
 
-          <h1 className="font-oswald text-6xl md:text-8xl font-bold leading-none mb-6 animate-fade-in" style={{ animationDelay: "100ms" }}>
+          <h1 className="font-oswald text-4xl sm:text-6xl md:text-8xl font-bold leading-tight mb-6 animate-fade-in" style={{ animationDelay: "100ms" }}>
             <span className="text-white block">РЕМОНТ</span>
             <span className="block" style={{ background: "linear-gradient(135deg, #FF6B00, #FFD600)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>КОМПЬЮТЕРОВ</span>
             <span className="text-white block">И НОУТБУКОВ</span>
           </h1>
 
-          <p className="font-ibm text-lg text-[#888] leading-relaxed mb-10 max-w-lg animate-fade-in" style={{ animationDelay: "200ms" }}>
+          <p className="font-ibm text-base md:text-lg text-[#888] leading-relaxed mb-10 max-w-lg animate-fade-in pr-4" style={{ animationDelay: "200ms" }}>
             Быстрая диагностика, честные цены, гарантия на все работы. Чиним в день обращения — без очередей и переплат.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "300ms" }}>
+          <div className="flex flex-col sm:flex-row gap-3 animate-fade-in" style={{ animationDelay: "300ms" }}>
             <a href="#contacts"
-              className="inline-flex items-center justify-center gap-2 font-oswald font-bold text-base px-8 py-4 rounded-full hover:brightness-110 transition-all duration-200"
+              className="flex items-center justify-center gap-2 font-oswald font-bold text-base px-8 py-4 rounded-full hover:brightness-110 transition-all duration-200"
               style={{ backgroundColor: "#FF6B00", color: "#0A0A0A", boxShadow: "0 0 30px rgba(255,107,0,0.5)" }}>
               <Icon name="Phone" size={18} />
               Вызвать мастера
             </a>
             <a href="#prices"
-              className="inline-flex items-center justify-center gap-2 border text-white font-oswald font-semibold text-base px-8 py-4 rounded-full hover:text-[#FF6B00] transition-all duration-200"
+              className="flex items-center justify-center gap-2 border text-white font-oswald font-semibold text-base px-8 py-4 rounded-full hover:text-[#FF6B00] transition-all duration-200"
               style={{ borderColor: "#2A2A2A" }}
               onMouseEnter={e => (e.currentTarget.style.borderColor = "#FF6B00")}
               onMouseLeave={e => (e.currentTarget.style.borderColor = "#2A2A2A")}>
@@ -445,7 +445,7 @@ function Footer() {
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
+    <div className="min-h-screen bg-[#0A0A0A] overflow-x-hidden">
       <NavBar />
       <Hero />
       <Services />
