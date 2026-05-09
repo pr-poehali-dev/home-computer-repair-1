@@ -345,8 +345,8 @@ function Contacts() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className={`space-y-4 ${inView ? "animate-fade-in-left" : "opacity-0"}`}>
             {[
-              { icon: "Phone", label: "Телефон", value: "+7 (900) 000-00-00" },
-              { icon: "MessageCircle", label: "WhatsApp / Telegram", value: "@master_remont" },
+              { icon: "Phone", label: "Телефон", value: "+7 (937) 178-44-66" },
+              { icon: "Mail", label: "Почта", value: "goodwork163@yandex.ru" },
               { icon: "Clock", label: "Режим работы", value: "Пн–Вс, 8:00 — 21:00" },
               { icon: "MapPin", label: "Район работы", value: "Самара и область" },
             ].map(item => (
