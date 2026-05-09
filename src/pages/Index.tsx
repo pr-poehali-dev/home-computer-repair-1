@@ -1,53 +1,53 @@
 import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE = "https://cdn.poehali.dev/projects/f065db28-d5d2-454e-97d3-0916141546c7/files/71761fec-75b5-400c-bdbe-3e6b61be62e3.jpg";
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/f065db28-d5d2-454e-97d3-0916141546c7/files/ac1ebb90-20f4-4d20-8b11-d81545c5f033.jpg";
 
 const services = [
-  { icon: "Paintbrush", name: "Покраска стен", desc: "Выравнивание, грунтовка, окраска" },
-  { icon: "Layers", name: "Укладка плитки", desc: "Ванная, кухня, коридор" },
-  { icon: "Zap", name: "Электрика", desc: "Розетки, выключатели, проводка" },
-  { icon: "Droplets", name: "Сантехника", desc: "Установка и замена оборудования" },
-  { icon: "SquareStack", name: "Натяжные потолки", desc: "Любые формы и размеры" },
-  { icon: "DoorOpen", name: "Установка дверей", desc: "Межкомнатные и входные" },
+  { icon: "Cpu", name: "Ремонт компьютеров", desc: "Диагностика, замена комплектующих, сборка" },
+  { icon: "Laptop", name: "Ремонт ноутбуков", desc: "Материнские платы, клавиатуры, экраны" },
+  { icon: "HardDrive", name: "Восстановление данных", desc: "С жёстких дисков, SSD, флешек" },
+  { icon: "Wifi", name: "Настройка сети", desc: "Wi-Fi, роутеры, локальные сети" },
+  { icon: "ShieldCheck", name: "Удаление вирусов", desc: "Чистка, защита, антивирус" },
+  { icon: "Monitor", name: "Ремонт мониторов", desc: "Матрицы, подсветка, разъёмы" },
 ];
 
 const prices = [
-  { service: "Поклейка обоев", unit: "м²", price: "от 250 ₽" },
-  { service: "Покраска стен", unit: "м²", price: "от 200 ₽" },
-  { service: "Укладка плитки", unit: "м²", price: "от 800 ₽" },
-  { service: "Штукатурка стен", unit: "м²", price: "от 350 ₽" },
-  { service: "Укладка ламината", unit: "м²", price: "от 400 ₽" },
-  { service: "Установка розетки", unit: "шт", price: "от 500 ₽" },
-  { service: "Замена смесителя", unit: "шт", price: "от 800 ₽" },
-  { service: "Установка двери", unit: "шт", price: "от 3 500 ₽" },
-  { service: "Натяжной потолок", unit: "м²", price: "от 600 ₽" },
-  { service: "Выравнивание пола", unit: "м²", price: "от 450 ₽" },
+  { service: "Диагностика", unit: "шт", price: "бесплатно" },
+  { service: "Чистка ноутбука / ПК", unit: "шт", price: "от 500 ₽" },
+  { service: "Замена термопасты", unit: "шт", price: "от 400 ₽" },
+  { service: "Замена экрана ноутбука", unit: "шт", price: "от 1 500 ₽" },
+  { service: "Замена клавиатуры", unit: "шт", price: "от 800 ₽" },
+  { service: "Замена HDD / SSD", unit: "шт", price: "от 600 ₽" },
+  { service: "Восстановление данных", unit: "шт", price: "от 1 000 ₽" },
+  { service: "Удаление вирусов", unit: "шт", price: "от 700 ₽" },
+  { service: "Установка Windows", unit: "шт", price: "от 900 ₽" },
+  { service: "Ремонт материнской платы", unit: "шт", price: "от 2 000 ₽" },
 ];
 
 const reviews = [
   {
     name: "Анна К.",
     rating: 5,
-    text: "Делали ремонт в ванной — всё идеально! Мастер пришёл вовремя, работал аккуратно, убрал за собой. Результат превзошёл ожидания.",
+    text: "Ноутбук перестал включаться — привезла, починили за 2 часа. Сказали что и почему сломалось, не навязывали лишнего. Очень довольна!",
     date: "15 апреля 2025",
   },
   {
     name: "Дмитрий В.",
     rating: 5,
-    text: "Уложил плитку на кухне и в коридоре. Швы ровные, стыки красивые. Цена честная, без скрытых накруток. Рекомендую!",
+    text: "Восстановили данные с разбитого жёсткого диска — думал уже всё потеряно. Цена честная, работа быстрая. Рекомендую!",
     date: "3 марта 2025",
   },
   {
     name: "Марина С.",
     rating: 5,
-    text: "Заменили электрику в квартире. Быстро, профессионально. Мастер объяснил что и зачем делает. Отличный специалист!",
+    text: "Почистили компьютер, заменили термопасту — теперь не греется и не шумит. Быстро, аккуратно, без лишних трат. Отличный мастер!",
     date: "18 февраля 2025",
   },
   {
     name: "Игорь П.",
     rating: 4,
-    text: "Поклеили обои в трёх комнатах. Работа выполнена на совесть, рисунок совпадает идеально. Обязательно обращусь снова.",
+    text: "Заменили экран на ноутбуке, всё работает отлично. Сделали в тот же день, что очень важно — работаю удалённо.",
     date: "7 января 2025",
   },
 ];
@@ -131,7 +131,7 @@ function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={HERO_IMAGE} alt="Ремонт" className="w-full h-full object-cover opacity-20" />
+        <img src={HERO_IMAGE} alt="Ремонт компьютеров" className="w-full h-full object-cover opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/85 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
         <div className="absolute top-1/3 right-10 w-96 h-96 rounded-full blur-3xl" style={{ background: "rgba(255,107,0,0.1)" }} />
@@ -146,13 +146,13 @@ function Hero() {
           </div>
 
           <h1 className="font-oswald text-6xl md:text-8xl font-bold leading-none mb-6 animate-fade-in" style={{ animationDelay: "100ms" }}>
-            <span className="text-white block">ПРОФИ</span>
-            <span className="block" style={{ background: "linear-gradient(135deg, #FF6B00, #FFD600)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>РЕМОНТ</span>
-            <span className="text-white block">КВАРТИР</span>
+            <span className="text-white block">РЕМОНТ</span>
+            <span className="block" style={{ background: "linear-gradient(135deg, #FF6B00, #FFD600)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>КОМПЬЮТЕРОВ</span>
+            <span className="text-white block">И НОУТБУКОВ</span>
           </h1>
 
           <p className="font-ibm text-lg text-[#888] leading-relaxed mb-10 max-w-lg animate-fade-in" style={{ animationDelay: "200ms" }}>
-            Качественный ремонт под ключ и отдельные виды работ. Более 10 лет опыта, гарантия на все работы, без посредников.
+            Быстрая диагностика, честные цены, гарантия на все работы. Чиним в день обращения — без очередей и переплат.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "300ms" }}>
@@ -174,8 +174,8 @@ function Hero() {
 
           <div className="flex gap-10 mt-14 animate-fade-in" style={{ animationDelay: "400ms" }}>
             {[
-              { value: "10+", label: "лет опыта" },
-              { value: "500+", label: "объектов сдано" },
+              { value: "8+", label: "лет опыта" },
+              { value: "1000+", label: "устройств починено" },
               { value: "100%", label: "гарантия" },
             ].map(stat => (
               <div key={stat.label}>
@@ -200,7 +200,7 @@ function Services() {
     <section id="services" className="py-24 bg-[#0A0A0A]" ref={ref}>
       <div className="max-w-6xl mx-auto px-6">
         <div className={`mb-16 ${inView ? "animate-fade-in" : "opacity-0"}`}>
-          <div className="font-ibm text-xs uppercase tracking-[4px] mb-4" style={{ color: "#FF6B00" }}>Что мы делаем</div>
+          <div className="font-ibm text-xs uppercase tracking-[4px] mb-4" style={{ color: "#FF6B00" }}>Что мы чиним</div>
           <h2 className="font-oswald text-5xl md:text-6xl font-bold text-white">
             НАШИ{" "}
             <span style={{ background: "linear-gradient(135deg, #FF6B00, #FFD600)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>УСЛУГИ</span>
@@ -366,8 +366,8 @@ function Contacts() {
             ))}
 
             <div className="rounded-2xl p-6 mt-2" style={{ background: "linear-gradient(135deg, rgba(255,107,0,0.15), rgba(255,214,0,0.05))", border: "1px solid rgba(255,107,0,0.2)" }}>
-              <div className="font-oswald text-2xl font-bold text-white mb-1">Замер — бесплатно</div>
-              <div className="font-ibm text-sm text-[#888]">Приедем в удобное время, оценим объём работ и рассчитаем стоимость без обязательств</div>
+              <div className="font-oswald text-2xl font-bold text-white mb-1">Диагностика — бесплатно</div>
+              <div className="font-ibm text-sm text-[#888]">Привезите устройство или опишите проблему — оценим неисправность и назовём стоимость без обязательств</div>
             </div>
           </div>
 
@@ -406,7 +406,7 @@ function Contacts() {
                 <textarea
                   value={form.message}
                   onChange={e => setForm({ ...form, message: e.target.value })}
-                  placeholder="Опишите вашу задачу..."
+                  placeholder="Например: ноутбук не включается, сильно греется..."
                   rows={4}
                   className="w-full rounded-xl px-4 py-3 font-ibm text-sm text-white placeholder-[#444] outline-none transition-colors resize-none"
                   style={{ background: "#0A0A0A", border: "1px solid #2A2A2A" }}
@@ -437,7 +437,7 @@ function Footer() {
           <span style={{ color: "#FF6B00" }}>.</span>
           <span style={{ color: "#FF6B00" }}>РУ</span>
         </div>
-        <p className="font-ibm text-xs text-[#444]">© 2025 Профессиональный ремонт квартир. Все права защищены.</p>
+        <p className="font-ibm text-xs text-[#444]">© 2025 Профессиональный ремонт компьютеров и ноутбуков. Все права защищены.</p>
       </div>
     </footer>
   );
