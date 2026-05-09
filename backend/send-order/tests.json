@@ -1,0 +1,17 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Отправка без имени — ошибка",
+      "method": "POST",
+      "path": "/",
+      "body": {"phone": "+79371784466", "message": "тест"},
+      "expectedStatus": 400
+    }
+  ]
+}

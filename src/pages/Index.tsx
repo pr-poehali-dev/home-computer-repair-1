@@ -330,6 +330,27 @@ function Reviews() {
 function Contacts() {
   const { ref, inView } = useInView();
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async () => {
+    if (!form.name || !form.phone) return;
+    setStatus("loading");
+    try {
+      const res = await fetch("https://functions.poehali.dev/8e228bb6-388d-428c-b820-034fdeec0e15", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setForm({ name: "", phone: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
 
   return (
     <section id="contacts" className="py-24 bg-[#0D0D0D]" ref={ref}>
@@ -414,11 +435,23 @@ function Contacts() {
                   onBlur={e => (e.target.style.borderColor = "#2A2A2A")}
                 />
               </div>
+              {status === "success" && (
+                <div className="rounded-xl p-4 text-center font-ibm text-sm" style={{ background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)", color: "#22c55e" }}>
+                  ✅ Заявка отправлена! Перезвоним в ближайшее время.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="rounded-xl p-4 text-center font-ibm text-sm" style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)", color: "#ef4444" }}>
+                  Ошибка отправки. Позвоните напрямую: +7 (937) 178-44-66
+                </div>
+              )}
               <button
-                className="w-full font-oswald font-bold text-base py-4 rounded-xl hover:brightness-110 transition-all duration-200 flex items-center justify-center gap-2"
+                onClick={handleSubmit}
+                disabled={status === "loading" || !form.name || !form.phone}
+                className="w-full font-oswald font-bold text-base py-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ backgroundColor: "#FF6B00", color: "#0A0A0A", boxShadow: "0 0 30px rgba(255,107,0,0.5)" }}>
-                <Icon name="Send" size={18} />
-                Отправить заявку
+                <Icon name={status === "loading" ? "Loader" : "Send"} size={18} />
+                {status === "loading" ? "Отправляем..." : "Отправить заявку"}
               </button>
             </div>
           </div>
