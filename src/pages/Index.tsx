@@ -4,12 +4,12 @@ import Icon from "@/components/ui/icon";
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/f065db28-d5d2-454e-97d3-0916141546c7/files/ac1ebb90-20f4-4d20-8b11-d81545c5f033.jpg";
 
 const services = [
-  { icon: "Cpu", name: "Ремонт компьютеров", desc: "Диагностика, замена комплектующих, сборка" },
-  { icon: "Laptop", name: "Ремонт ноутбуков", desc: "Материнские платы, клавиатуры, экраны" },
-  { icon: "HardDrive", name: "Восстановление данных", desc: "С жёстких дисков, SSD, флешек" },
-  { icon: "Wifi", name: "Настройка сети", desc: "Wi-Fi, роутеры, локальные сети" },
-  { icon: "ShieldCheck", name: "Удаление вирусов", desc: "Чистка, защита, антивирус" },
-  { icon: "Monitor", name: "Ремонт мониторов", desc: "Матрицы, подсветка, разъёмы" },
+  { icon: "Cpu", name: "Ремонт компьютеров", desc: "Диагностика, замена комплектующих, сборка", img: "https://cdn.poehali.dev/projects/f065db28-d5d2-454e-97d3-0916141546c7/files/04915de2-b4e5-488b-a3a3-a7c9d6819c6c.jpg" },
+  { icon: "Laptop", name: "Ремонт ноутбуков", desc: "Материнские платы, клавиатуры, экраны", img: "https://cdn.poehali.dev/projects/f065db28-d5d2-454e-97d3-0916141546c7/files/f66226cf-c5e9-4a71-8215-88d96edf272d.jpg" },
+  { icon: "HardDrive", name: "Восстановление данных", desc: "С жёстких дисков, SSD, флешек", img: "https://cdn.poehali.dev/projects/f065db28-d5d2-454e-97d3-0916141546c7/files/34140ff0-aad1-4cb8-a187-391ba1f05930.jpg" },
+  { icon: "Wifi", name: "Настройка сети", desc: "Wi-Fi, роутеры, локальные сети", img: "https://cdn.poehali.dev/projects/f065db28-d5d2-454e-97d3-0916141546c7/files/55ad27cb-c6f2-4bdd-85d0-122c14f1aaca.jpg" },
+  { icon: "ShieldCheck", name: "Удаление вирусов", desc: "Чистка, защита, антивирус", img: "https://cdn.poehali.dev/projects/f065db28-d5d2-454e-97d3-0916141546c7/files/bbcd2ca7-14e2-461d-9fa3-91a2d58b7911.jpg" },
+  { icon: "Monitor", name: "Ремонт мониторов", desc: "Матрицы, подсветка, разъёмы", img: "https://cdn.poehali.dev/projects/f065db28-d5d2-454e-97d3-0916141546c7/files/e0e6e687-aeeb-42a9-bbb3-bd417bc63590.jpg" },
 ];
 
 const prices = [
@@ -224,9 +224,12 @@ function Services() {
                 (e.currentTarget as HTMLDivElement).style.borderColor = "#2A2A2A";
                 (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
               }}>
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors duration-200"
-                style={{ background: "rgba(255,107,0,0.1)" }}>
-                <Icon name={s.icon} size={22} style={{ color: "#FF6B00" }} />
+              <div className="relative w-full h-40 rounded-xl overflow-hidden mb-4">
+                <img src={s.img} alt={s.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(20,20,20,0.85) 0%, transparent 60%)" }} />
+                <div className="absolute bottom-3 left-3 w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "rgba(255,107,0,0.9)" }}>
+                  <Icon name={s.icon} size={18} style={{ color: "#fff" }} />
+                </div>
               </div>
               <h3 className="font-oswald text-lg font-semibold text-white mb-2">{s.name}</h3>
               <p className="font-ibm text-sm text-[#666]">{s.desc}</p>
